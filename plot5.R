@@ -11,11 +11,12 @@ NEI.balt <- NEI[(NEI$SCC %in% SCC$SCC[indx]),]
 balt <- NEI.balt[NEI.balt$fips == "24510",]
 
 
-plt <- ggplot(data = balt, aes(x = year, y = Emissions ) ) + geom_point() +
-        #stat_summary(fun.y = mean, geom="line") +
+plt <- ggplot(data = balt, aes(x = year, y = Emissions ) ) + #geom_point() +
+        stat_summary(fun.y = mean, geom="line") +
         geom_smooth(aes(x=year,y=Emissions),data=balt ,method ="lm")
 
 print(plt)
+ggsave("../plot5.png")
 
 
 

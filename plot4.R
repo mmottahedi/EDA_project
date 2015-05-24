@@ -9,12 +9,12 @@ indx <- grep("Coal",SCC$SCC.Level.Four)
 NEI.balt <- NEI[(NEI$SCC %in% SCC$SCC[indx]),]
 
 
-plt <- ggplot(data = NEI.balt, aes(x = year, y = Emissions ) ) + geom_point() +
+plt <- ggplot(data = NEI.balt, aes(x = year, y = Emissions ) ) + #geom_point() +
         facet_grid(.~type) +  stat_summary(fun.y = mean, geom="line") +
-        geom_smooth(aes(x=year,y=Emissions),data=NEI.balt )
+        geom_smooth(aes(x=year,y=Emissions),data=NEI.balt ,method = "lm")
 
 print(plt)
-
+ggsave("../plot4.png")
 
 
 

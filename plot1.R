@@ -18,3 +18,5 @@ lm.fit <- lm(pol~., data =total)
 
 plot(total$year,total$pol,main = "plot1",type= "b")
 abline(lm.fit,col='red')
+savePlot("plot1.png")
+

@@ -16,6 +16,6 @@ for ( i in seq(1999,2008,3)){
 
 lm.fit <- lm(pol~., data =total)
 
+savePlot("plot2.png")
 plot(total$year,total$pol,main = "plot2",type= "b")
 abline(lm.fit,col='red')
-
